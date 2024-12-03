@@ -15,9 +15,9 @@ window.addEventListener("keydown", (e) => {
   if (e.key === " ") {
     fireworks.launch(1);
   }
-  if (e.key === "q" && angle >= -70) {
+  if (e.key === "q" || (e.key === "ArrowUp" && angle >= -70)) {
     angle--;
-  } else if (e.key === "w" && angle <= 70) {
+  } else if (e.key === "w" || (e.key === "ArrowDown" && angle <= 70)) {
     angle++;
   }
 
