@@ -1,5 +1,6 @@
 import "./style.css";
 import { Fireworks } from "fireworks-js";
+import soundFx from "./clap.wav";
 
 const combined = document.querySelector("#combined");
 const wheel = document.querySelector("#wheel");
@@ -7,10 +8,57 @@ const container = document.querySelector(".container");
 let angle = 45;
 let positionX = 0;
 
+(async () => {
+  await loadStarsPreset(tsParticles);
+
+  await tsParticles.load({
+    id: "tsparticles",
+    options: {
+      preset: "stars",
+      background: {
+        color: "#040418",
+      },
+      particles: {
+        size: {
+          value: {
+            min: 0.5,
+            max: 1.1,
+          },
+        },
+        move: {
+          direction: "top-right",
+          random: false,
+          straight: true,
+          speed: 0.1,
+        },
+        number: {
+          value: 1000,
+          limit: 0,
+          density: { enable: true, area: 1000 },
+        },
+      },
+      fullScreen: {
+        enable: false,
+        // zIndex: -1,
+      },
+    },
+  });
+})();
+
 combined.style.transform = `rotate(${angle}deg)`;
 wheel.style.transform = `rotate(calc(${positionX}deg - ${angle}deg)`;
 
-const fireworks = new Fireworks(container, {});
+const fireworks = new Fireworks(container, {
+  sound: {
+    enabled: true,
+    files: "/clap.wav",
+    volume: {
+      min: 4,
+      max: 8,
+    },
+  },
+});
+
 window.addEventListener("keydown", (e) => {
   if (e.key === " ") {
     fireworks.launch(1);
@@ -32,5 +80,5 @@ window.addEventListener("keydown", (e) => {
   }
   combined.style.transform = `rotate(${angle}deg)`;
   combined.style.left = `${positionX}px`;
-  wheel.style.transform = `rotate(calc(${positionX}deg - ${angle}deg)`;
+  wheel.style.transform = `rotate(calc(${positionX * 2}deg - ${angle}deg)`;
 });
