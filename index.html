@@ -4,18 +4,26 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vitenpmprosjekt/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Particle Cannon</title>
-    <script type="module" crossorigin src="/vitenpmprosjekt/assets/index-CqYLomEW.js"></script>
-    <link rel="stylesheet" crossorigin href="/vitenpmprosjekt/assets/index-D4FdCqey.css">
+    <title>Fireworks Cannon</title>
+    <script type="module" crossorigin src="/vitenpmprosjekt/assets/index-x3Br6bFJ.js"></script>
+    <link rel="stylesheet" crossorigin href="/vitenpmprosjekt/assets/index-DnGZOTMA.css">
   </head>
   <body>
     <div id="app">
+      <div id="tsparticles"></div>
       <div id="sky">
         <div id="combined">
           <div class="container"></div>
+          <div id="nozzle"></div>
           <div id="cannon"></div>
           <div id="wheel">
-            <div id="spokes">
+            <div class="spokes1">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class="spokes2">
               <div></div>
               <div></div>
               <div></div>
@@ -30,5 +38,6 @@
         <p>Fire: spacebar</p>
       </div>
     </div>
+    <script src="/src/tsparticles.preset.stars.bundle.min.js"></script>
   </body>
 </html>
