@@ -16,7 +16,7 @@ let positionX = 0;
     options: {
       preset: "stars",
       background: {
-        color: "#040418",
+        color: "#040414",
       },
       particles: {
         size: {
