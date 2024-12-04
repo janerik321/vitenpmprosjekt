@@ -26,10 +26,7 @@ let positionX = 0;
           },
         },
         move: {
-          direction: "top-right",
-          random: false,
-          straight: true,
-          speed: 0.1,
+          enable: false,
         },
         number: {
           value: 1000,
