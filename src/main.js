@@ -1,6 +1,8 @@
 import "./style.css";
 import { Fireworks } from "fireworks-js";
-// import soundFx from "/clap.wav";
+import explosion0 from "/sounds/explosion0.mp3";
+import explosion1 from "/sounds/explosion1.mp3";
+import explosion2 from "/sounds/explosion2.mp3";
 
 const combined = document.querySelector("#combined");
 const wheel = document.querySelector("#wheel");
@@ -48,11 +50,7 @@ wheel.style.transform = `rotate(calc(${positionX}deg - ${angle}deg)`;
 const fireworks = new Fireworks(container, {
   sound: {
     enabled: true,
-    files: [
-      "/sounds/explosion0.mp3",
-      "/sounds/explosion0.mp3",
-      "/sounds/explosion0.mp3",
-    ],
+    files: [explosion0, explosion1, explosion2],
     volume: {
       min: 40,
       max: 60,
